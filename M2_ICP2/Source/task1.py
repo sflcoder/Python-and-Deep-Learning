@@ -37,10 +37,6 @@ model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['ac
 history = model.fit(train_data, train_labels_one_hot, batch_size=256, epochs=10, verbose=1,
                    validation_data=(test_data, test_labels_one_hot))
 
-# Print the evaluation result
-[test_loss, test_acc] = model.evaluate(test_data, test_labels_one_hot)
-print("Evaluation result on Test Data : Loss = {}, accuracy = {}".format(test_loss, test_acc))
-
 # plot the loss for both training data and validation data.
 plt.plot(history.history['loss'])
 plt.plot(history.history['val_loss'])
