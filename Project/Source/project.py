@@ -55,7 +55,7 @@ plt.show()
 # define the show_facial_keypoints function
 def show_facial_keypoints(images, keypoints, index):
     facial_keypoints = plt.imshow(images[index], cmap='gray')
-    for i in range(0, 15):
+    for i in range(15):
         plt.plot(keypoints.loc[index][2 * i], keypoints.loc[index][2 * i + 1], 'ro')
     return facial_keypoints
 
