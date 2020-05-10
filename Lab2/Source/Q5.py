@@ -44,8 +44,7 @@ def createmodel():
     print(model.summary())
     return model
 
-
-sentiment_names = ['negative', 'somewhat negative', 'neutral', 'somewhat positive', 'positive']
+sentiment_names = ['negative','somewhat negative','neutral','somewhat positive','positive']
 labelencoder = LabelEncoder()
 integer_encoded = labelencoder.fit_transform(data['Sentiment'])
 # Count the number of element in each Sentiment
@@ -91,8 +90,8 @@ plt.ylabel('Accuracy')
 plt.legend(['Train', 'Validation'], loc='upper left')
 plt.show()
 
-# model.save('Q5_model10.h5')
-# model = load_model('Q5_model10.h5')
+model.save('Q5_model10.h5')
+model = load_model('Q5_model10.h5')
 score, acc = model.evaluate(X_test, Y_test, verbose=2, batch_size=batch_size)
 
 print("Loss:", score)
@@ -100,4 +99,4 @@ print("Accuracy: %.2f%%" % (acc * 100))
 
 predicted_labels = model.predict_classes(X_test)
 print('The predicted Sentiment label for X_test[0]:', sentiment_names[predicted_labels[0]])
-print('The actual Sentiment label for X_test[0]: ', sentiment_names[np.argmax(Y_test[0])])
+print('The actual Sentiment label for X_test[0]: ',sentiment_names[np.argmax(Y_test[0])])
